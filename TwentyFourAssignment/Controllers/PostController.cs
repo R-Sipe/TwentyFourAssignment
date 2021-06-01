@@ -10,6 +10,7 @@ using TwentyFour.Services;
 
 namespace TwentyFourAssignment.Controllers
 {
+    [Authorize]
     public class PostController : ApiController
     {
         public IHttpActionResult Get()
@@ -38,5 +39,36 @@ namespace TwentyFourAssignment.Controllers
             var postService = new PostService(userId);
             return postService;
         }
+
+        public IHttpActionResult GetId(int id)
+        {
+            PostService postService = CreatePostService();
+            var post = postService.GetPostById(id);
+            return Ok(post);
+        }
+
+        public IHttpActionResult Update(PostEdit edit)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreatePostService();
+
+            if (!service.UpdatePost(edit))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreatePostService();
+
+            if (!service.DeletePost(id))
+                return InternalServerError();
+
+            return Ok();
+        }
+
     }
 }
