@@ -20,5 +20,6 @@ namespace TwentyFour.Data
 
         public virtual List<Like> Likes { get; set; }
 
+
     }
 }
