@@ -16,10 +16,10 @@ namespace TwentyFour.Data
         public string Text { get; set; }
         public Guid AuthorId { get; set; }
         public int CommentId { get; set; }
-        [ForeignKey(nameof(CommentId))]
+        //[ForeignKey(nameof(CommentId))]
         public virtual List<Comment> Comments { get; set; }
         public int LikeId { get; set; }
-        [ForeignKey(nameof(LikeId))]
+        //[ForeignKey(nameof(LikeId))]
 
         public virtual List<Like> Likes { get; set; }
 
