@@ -16,7 +16,7 @@ namespace TwentyFour.Models
         public string Text { get; set; }
         public int? PostId { get; set; }
 
-        //ForeignKey(nameof(PostId))]
+        [ForeignKey(nameof(PostId))]
         public virtual Post Post { get; set; }
     }
 }
