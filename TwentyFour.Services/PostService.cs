@@ -46,6 +46,7 @@ namespace TwentyFour.Services
                         e =>
                         new GetAllPost
                         {
+                            PostId = e.Id,
                             Title = e.Title,
                             Text = e.Text
                         }

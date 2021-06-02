@@ -47,7 +47,7 @@ namespace TwentyFourAssignment.Controllers
             return Ok(post);
         }
 
-        public IHttpActionResult Update(PostEdit edit)
+        public IHttpActionResult Put(PostEdit edit)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
