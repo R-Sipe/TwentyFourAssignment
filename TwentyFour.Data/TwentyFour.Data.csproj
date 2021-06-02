@@ -91,6 +91,10 @@
     <Compile Include="Migrations\202106011937193_ForeignKeyRemovedFromPost.Designer.cs">
       <DependentUpon>202106011937193_ForeignKeyRemovedFromPost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106020043316_Andrew initial migration.cs" />
+    <Compile Include="Migrations\202106020043316_Andrew initial migration.Designer.cs">
+      <DependentUpon>202106020043316_Andrew initial migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +107,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106011937193_ForeignKeyRemovedFromPost.resx">
       <DependentUpon>202106011937193_ForeignKeyRemovedFromPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106020043316_Andrew initial migration.resx">
+      <DependentUpon>202106020043316_Andrew initial migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
