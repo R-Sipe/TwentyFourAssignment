@@ -206,7 +206,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LikeController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -310,6 +314,14 @@
     <ProjectReference Include="..\TwentyFour.Data\TwentyFour.Data.csproj">
       <Project>{00C5E371-89EA-4727-B0E9-A40B87DFE623}</Project>
       <Name>TwentyFour.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TwentyFour.Models\TwentyFour.Models.csproj">
+      <Project>{5e0c413a-268f-43cc-98c1-4273452b509b}</Project>
+      <Name>TwentyFour.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TwentyFour.Services\TwentyFour.Services.csproj">
+      <Project>{6ffba239-cc44-479e-b344-c50064b5d2ae}</Project>
+      <Name>TwentyFour.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
