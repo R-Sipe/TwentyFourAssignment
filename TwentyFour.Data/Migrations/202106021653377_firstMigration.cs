@@ -14,15 +14,11 @@ namespace TwentyFour.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Text = c.String(),
                         AuthorId = c.Guid(nullable: false),
-                        PostId = c.Int(nullable: false),
-                        CommentId = c.Int(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
+                        PostId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
-                .ForeignKey("dbo.Comment", t => t.CommentId)
-                .Index(t => t.PostId)
-                .Index(t => t.CommentId);
+                .ForeignKey("dbo.Post", t => t.PostId)
+                .Index(t => t.PostId);
             
             CreateTable(
                 "dbo.Post",
@@ -32,6 +28,7 @@ namespace TwentyFour.Data.Migrations
                         Title = c.String(),
                         Text = c.String(),
                         AuthorId = c.Guid(nullable: false),
+                        CommentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -46,6 +43,19 @@ namespace TwentyFour.Data.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
                 .Index(t => t.PostId);
+            
+            CreateTable(
+                "dbo.Reply",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Text = c.String(),
+                        AuthorId = c.Guid(nullable: false),
+                        CommentId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Comment", t => t.CommentId, cascadeDelete: true)
+                .Index(t => t.CommentId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -125,21 +135,22 @@ namespace TwentyFour.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Comment", "CommentId", "dbo.Comment");
+            DropForeignKey("dbo.Reply", "CommentId", "dbo.Comment");
             DropForeignKey("dbo.Like", "PostId", "dbo.Post");
             DropForeignKey("dbo.Comment", "PostId", "dbo.Post");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Reply", new[] { "CommentId" });
             DropIndex("dbo.Like", new[] { "PostId" });
-            DropIndex("dbo.Comment", new[] { "CommentId" });
             DropIndex("dbo.Comment", new[] { "PostId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.Reply");
             DropTable("dbo.Like");
             DropTable("dbo.Post");
             DropTable("dbo.Comment");

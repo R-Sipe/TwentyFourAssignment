@@ -13,7 +13,7 @@ namespace TwentyFour.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202106021334273_firstMigration"; }
+            get { return "202106021653377_firstMigration"; }
         }
         
         string IMigrationMetadata.Source
