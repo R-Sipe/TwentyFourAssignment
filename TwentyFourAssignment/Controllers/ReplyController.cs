@@ -12,13 +12,12 @@ namespace TwentyFourAssignment.Controllers
 {
     public class ReplyController : ApiController
     {
-        public IHttpActionResult Get()
+        private ReplyService CreateReplyService()
         {
-            ReplyService replyService = CreateReplyService();
-            var replies = replyService.ViewReplies();
-            return Ok(replies);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var replyService = new ReplyService(userId);
+            return replyService;
         }
-
         public IHttpActionResult Post(ReplyCreate reply)
         {
             if (!ModelState.IsValid)
@@ -32,13 +31,12 @@ namespace TwentyFourAssignment.Controllers
             return Ok();
         }
 
-        private ReplyService CreateReplyService()
+        public IHttpActionResult Get()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var replyService = new ReplyService(userId);
-            return replyService;
+            ReplyService replyService = CreateReplyService();
+            var replies = replyService.ViewReplies();
+            return Ok(replies);
         }
 
     }
-
 }

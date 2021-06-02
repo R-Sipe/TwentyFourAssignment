@@ -22,7 +22,7 @@ namespace TwentyFour.Services
             var entity =
                 new Reply()
                 {
-            //      CommentId = reply.CommentId,
+                    CommentId = reply.CommentId,
                     Text = reply.Text,
                     AuthorId = _userId,
                 };
@@ -46,11 +46,10 @@ namespace TwentyFour.Services
                         e =>
                         new ReplyCreate
                         {
-                     // Comment = e.Comment,
+                        CommentId = e.CommentId,
                         Text = e.Text
                         }
                         );
-
                 return query.ToArray();
             }
         }
