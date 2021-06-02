@@ -17,12 +17,11 @@ namespace TwentyFour.Services
             _userId = userId;
         }
 
-        public bool CreateComment(CommentCreate comment)
+        public bool CreateComment(CreateComment comment)
         {
             var entity =
                 new Comment()
-                {
-                    ReplyId = comment.ReplyId,
+                { 
                     PostId = comment.PostId,
                     Text = comment.Text,
                     AuthorId = _userId,
@@ -35,7 +34,28 @@ namespace TwentyFour.Services
             }
         }
 
-        public IEnumerable<GetAllComments> GetComments()
+        public IEnumerable<GetAllComments> GetCommentsByPostId(int postId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Comments
+                    .Where(e => e.PostId == postId)
+                    .Select(
+                        e =>
+                        new GetAllComments
+                        {
+                            PostId = e.PostId,
+                            Id = e.Id,
+                            Text = e.Text
+                        });
+
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<GetAllComments> GetCommentsByAuthId()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -47,13 +67,43 @@ namespace TwentyFour.Services
                         e =>
                         new GetAllComments
                         {
-                            //PostId = e.PostId,
-                            //ReplyId = e.ReplyId,
+                            PostId = e.PostId,
+                            Id = e.Id,
                             Text = e.Text
-                        }
-                        );
+                        });
 
                 return query.ToArray();
+            }
+        }
+
+        public bool UpdateComments(UpdateComment model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.AuthorId == _userId &&  e.PostId == model.PostId);
+
+                entity.PostId = model.PostId;
+                entity.Text = model.Text;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteNote(int commentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.Id == commentId && e.AuthorId == _userId);
+
+                ctx.Comments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

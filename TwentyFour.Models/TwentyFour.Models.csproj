@@ -54,11 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateComment.cs" />
-    <Compile Include="GetAllComments.cs" />
+    <Compile Include="Comments\CreateComment.cs" />
+    <Compile Include="Comments\GetAllComments.cs" />
     <Compile Include="GetAllPost.cs" />
     <Compile Include="PostCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Comments\UpdateComment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -70,5 +71,6 @@
       <Name>TwentyFour.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

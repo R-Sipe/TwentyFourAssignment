@@ -14,10 +14,7 @@ namespace TwentyFour.Data
         public int Id { get; set; }
         public string Text { get; set; }
         public Guid AuthorId { get; set; }
-        public int? ReplyId { get; set; }
-        [ForeignKey(nameof(ReplyId))]
         public virtual List<Reply> Replies { get; set; }
-
         public int? PostId { get; set; }
         [ForeignKey(nameof(PostId))]
         public virtual Post Post { get; set; }

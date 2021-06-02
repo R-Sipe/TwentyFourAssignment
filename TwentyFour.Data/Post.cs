@@ -17,7 +17,6 @@ namespace TwentyFour.Data
         public Guid AuthorId { get; set; }
 
         public virtual List<Comment> Comments { get; set; }
-
         public virtual List<Like> Likes { get; set; }
 
     }

@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace TwentyFour.Models
 {
-    public class PostCreate
+    public class UpdateComment
     {
+        public int Id { get; set; }
         [Required]
-        public string Title { get; set; }
         public string Text { get; set; }
+        public int? PostId { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,12 @@ namespace TwentyFour.Models
 {
     public class GetAllComments
     {
+        public int Id { get; set; }
+        [Required]
         public string Text { get; set; }
-
-        public int? ReplyId { get; set; }
-
-        [ForeignKey(nameof(ReplyId))]
-        public virtual List<Reply> Replies { get; set; }
-
         public int? PostId { get; set; }
 
-        [ForeignKey(nameof(PostId))]
-        public virtual Post Post { get; set; }
+       // [ForeignKey(nameof(PostId))]
+       // public virtual Post Post { get; set; }
     }
 }
