@@ -15,9 +15,7 @@ namespace TwentyFour.Data
         public string Title { get; set; }
         public string Text { get; set; }
         public Guid AuthorId { get; set; }
-
         public virtual List<Comment> Comments { get; set; }
         public virtual List<Like> Likes { get; set; }
-
     }
 }

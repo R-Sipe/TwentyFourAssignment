@@ -59,7 +59,11 @@
     <Compile Include="GetAllPost.cs" />
     <Compile Include="PostCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <Compile Include="Comments\UpdateComment.cs" />
+
+    <Compile Include="ReplyCreate.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
