@@ -87,9 +87,9 @@
     <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Like.cs" />
-    <Compile Include="Migrations\202106011937193_ForeignKeyRemovedFromPost.cs" />
-    <Compile Include="Migrations\202106011937193_ForeignKeyRemovedFromPost.Designer.cs">
-      <DependentUpon>202106011937193_ForeignKeyRemovedFromPost.cs</DependentUpon>
+    <Compile Include="Migrations\202106021334273_firstMigration.cs" />
+    <Compile Include="Migrations\202106021334273_firstMigration.Designer.cs">
+      <DependentUpon>202106021334273_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202106012314316_migrations.cs" />
     <Compile Include="Migrations\202106012314316_migrations.Designer.cs">
@@ -113,8 +113,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202106011937193_ForeignKeyRemovedFromPost.resx">
-      <DependentUpon>202106011937193_ForeignKeyRemovedFromPost.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202106021334273_firstMigration.resx">
+      <DependentUpon>202106021334273_firstMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106012314316_migrations.resx">
       <DependentUpon>202106012314316_migrations.cs</DependentUpon>

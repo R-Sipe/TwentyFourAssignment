@@ -3,7 +3,7 @@ namespace TwentyFour.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ForeignKeyRemovedFromPost : DbMigration
+    public partial class firstMigration : DbMigration
     {
         public override void Up()
         {
@@ -14,16 +14,15 @@ namespace TwentyFour.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Text = c.String(),
                         AuthorId = c.Guid(nullable: false),
-                        ReplyId = c.Int(nullable: false),
                         PostId = c.Int(nullable: false),
                         CommentId = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Post", t => t.PostId, cascadeDelete: true)
-                .ForeignKey("dbo.Comment", t => t.ReplyId)
-                .Index(t => t.ReplyId)
-                .Index(t => t.PostId);
+                .ForeignKey("dbo.Comment", t => t.CommentId)
+                .Index(t => t.PostId)
+                .Index(t => t.CommentId);
             
             CreateTable(
                 "dbo.Post",
@@ -33,8 +32,6 @@ namespace TwentyFour.Data.Migrations
                         Title = c.String(),
                         Text = c.String(),
                         AuthorId = c.Guid(nullable: false),
-                        CommentId = c.Int(nullable: false),
-                        LikeId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -128,7 +125,7 @@ namespace TwentyFour.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Comment", "ReplyId", "dbo.Comment");
+            DropForeignKey("dbo.Comment", "CommentId", "dbo.Comment");
             DropForeignKey("dbo.Like", "PostId", "dbo.Post");
             DropForeignKey("dbo.Comment", "PostId", "dbo.Post");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
@@ -136,8 +133,8 @@ namespace TwentyFour.Data.Migrations
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.Like", new[] { "PostId" });
+            DropIndex("dbo.Comment", new[] { "CommentId" });
             DropIndex("dbo.Comment", new[] { "PostId" });
-            DropIndex("dbo.Comment", new[] { "ReplyId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
