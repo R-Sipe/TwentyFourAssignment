@@ -107,6 +107,10 @@
     <Compile Include="Migrations\202106020043316_Andrew initial migration.Designer.cs">
       <DependentUpon>202106020043316_Andrew initial migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106012109126_UpdatedPutController.cs" />
+    <Compile Include="Migrations\202106012109126_UpdatedPutController.Designer.cs">
+      <DependentUpon>202106012109126_UpdatedPutController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106020043316_Andrew initial migration.resx">
       <DependentUpon>202106020043316_Andrew initial migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106012109126_UpdatedPutController.resx">
+      <DependentUpon>202106012109126_UpdatedPutController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -47,12 +47,61 @@ namespace TwentyFour.Services
                         e =>
                         new GetAllPost
                         {
+                            PostId = e.Id,
                             Title = e.Title,
                             Text = e.Text
                         }
                         );
 
                 return query.ToArray();
+            }
+        }
+
+        public PostDetail GetPostById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Posts
+                    .Single(e => e.Id == id && e.AuthorId == _userId);
+                return
+                    new PostDetail
+                    {
+                        PostId = entity.Id,
+                        Title = entity.Title,
+                        Text = entity.Text
+                    };
+            }
+        }
+
+        public bool UpdatePost(PostEdit edit)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Posts
+                    .Single(e => e.Id == edit.PostId && e.AuthorId == _userId);
+                entity.Title = edit.Title;
+                entity.Text = edit.Text;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeletePost(int postId)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Posts
+                    .Single(e => e.Id == postId && e.AuthorId == _userId);
+
+                ctx.Posts.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
     }

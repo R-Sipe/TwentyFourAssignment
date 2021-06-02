@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace TwentyFour.Models
 {
-    public class GetAllPost
+    public class PostEdit
     {
         public int PostId { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
-
-        // get branch up
     }
 }

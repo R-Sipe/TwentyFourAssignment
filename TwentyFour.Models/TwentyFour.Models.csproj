@@ -63,6 +63,8 @@
     <Compile Include="GetAllPost.cs" />
     <Compile Include="LikeCreate.cs" />
     <Compile Include="PostCreate.cs" />
+    <Compile Include="PostDetail.cs" />
+    <Compile Include="PostEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
 
     <Compile Include="Comments\UpdateComment.cs" />
