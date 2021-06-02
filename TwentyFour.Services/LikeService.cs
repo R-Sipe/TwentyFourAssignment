@@ -22,9 +22,7 @@ namespace TwentyFour.Services
             var entity =
                 new Like()
                 {
-                    //Title = like.Title,
-                    //Text = like.Text,
-                   
+                    PostId = like.PostId,
                     OwnerId = _userId,
                 };
 

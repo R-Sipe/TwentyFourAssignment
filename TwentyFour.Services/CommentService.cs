@@ -33,7 +33,7 @@ namespace TwentyFour.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
+        /*
         public IEnumerable<GetAllComments> GetCommentsByPostId(int postId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -54,6 +54,7 @@ namespace TwentyFour.Services
                 return query.ToArray();
             }
         }
+        */
 
         public IEnumerable<GetAllComments> GetCommentsByAuthId()
         {
@@ -76,6 +77,7 @@ namespace TwentyFour.Services
             }
         }
 
+        
         public bool UpdateComments(UpdateComment model)
         {
             using (var ctx = new ApplicationDbContext())

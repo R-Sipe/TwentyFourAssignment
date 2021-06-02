@@ -10,7 +10,7 @@ namespace TwentyFour.Data
 {
     public class Reply : Comment
     {
-        public int? CommentId { get; set; }
+        public int CommentId { get; set; }
 
        // [ForeignKey(nameof(CommentId))]
         public virtual Comment Comment { get; set; }

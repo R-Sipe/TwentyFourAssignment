@@ -19,6 +19,7 @@ namespace TwentyFourAssignment.Controllers
             return Ok(comments);
         }
 
+        /*
         [HttpGet]
         public IHttpActionResult Get([FromUri]int Id)
         {
@@ -26,6 +27,7 @@ namespace TwentyFourAssignment.Controllers
             var comments = commentService.GetCommentsByPostId(Id);
             return Ok(comments);
         }
+        */
 
         public IHttpActionResult Post(CreateComment comment)
         {
@@ -39,7 +41,7 @@ namespace TwentyFourAssignment.Controllers
 
             return Ok("Comment was Created");
         }
-
+        
         public IHttpActionResult Put(UpdateComment comment)
         {
             if (!ModelState.IsValid)
@@ -62,7 +64,7 @@ namespace TwentyFourAssignment.Controllers
 
             return Ok($"Comment with Id #{id} has been deleted");
         }
-
+        
         private CommentService CreateCommentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

@@ -11,7 +11,7 @@ namespace TwentyFour.Models
     public class GetAllLikes
     {
         public int PostId { get; set; }
-        [ForeignKey(nameof(PostId))]
-        public virtual Post Post { get; set; }
+       // [ForeignKey(nameof(PostId))]
+       // public virtual Post Post { get; set; }
     }
 }
