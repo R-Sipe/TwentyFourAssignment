@@ -54,9 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="GetAllLikes.cs" />
+
     <Compile Include="Comments\CreateComment.cs" />
     <Compile Include="Comments\GetAllComments.cs" />
+
     <Compile Include="GetAllPost.cs" />
+    <Compile Include="LikeCreate.cs" />
     <Compile Include="PostCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
 

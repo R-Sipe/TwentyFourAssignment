@@ -55,9 +55,13 @@
   </ItemGroup>
   <ItemGroup>
 
+    <Compile Include="LikeService.cs" />
+
+
     <Compile Include="CommentService.cs" />
 
     <Compile Include="ReplyService.cs" />
+
 
     <Compile Include="PostService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
