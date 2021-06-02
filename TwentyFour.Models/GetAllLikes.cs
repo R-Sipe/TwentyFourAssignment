@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TwentyFour.Data;
 
 namespace TwentyFour.Models
 {
-    public class GetAllPost
+    public class GetAllLikes
     {
         public int PostId { get; set; }
-        public string Title { get; set; }
-        public string Text { get; set; }
-
-        // get branch up
+        [ForeignKey(nameof(PostId))]
+        public virtual Post Post { get; set; }
     }
 }

@@ -22,6 +22,7 @@ namespace TwentyFour.Services
             var entity =
                 new Post()
                 {
+
                     Title = post.Title,
                     Text = post.Text,
                     AuthorId = _userId,
