@@ -33,21 +33,20 @@ namespace TwentyFour.Services
             }
         }
 
-        public IEnumerable<GetAllLikes> GetLikes()
+        public IEnumerable<GetAllLikes> GetLikesByPostId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Likes
-                    .Where(e => e.OwnerId == _userId)
+                    .Where(e => e.OwnerId == _userId && e.PostId == id)
                     .Select(
                         e =>
                         new GetAllLikes
                         {
-                            //Title = e.Title,
-                            //Text = e.Text
-                            
+                           PostId = e.PostId,
+                           Post = e.Post
                         }
                         );
 

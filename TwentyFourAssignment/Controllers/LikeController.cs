@@ -12,10 +12,10 @@ namespace TwentyFourAssignment.Controllers
 {
     public class LikeController : ApiController
     {
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(int id)
         {
             LikeService likeService = CreateLikeService();
-            var likes = likeService.GetLikes();
+            var likes = likeService.GetLikesByPostId(id);
             return Ok(likes);
         }
 
