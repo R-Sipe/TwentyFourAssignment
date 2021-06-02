@@ -46,7 +46,7 @@ namespace TwentyFour.Services
                         new GetAllLikes
                         {
                            PostId = e.PostId,
-                           Post = e.Post
+                          // Post = e.Post
                         }
                         );
 
