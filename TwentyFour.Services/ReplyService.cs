@@ -8,50 +8,48 @@ using TwentyFour.Models;
 
 namespace TwentyFour.Services
 {
-    public class PostService
+    public class ReplyService
     {
         private readonly Guid _userId;
 
-        public PostService(Guid userId)
+        public ReplyService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreatePost(PostCreate post)
+        public bool CreateReply(ReplyCreate reply)
         {
             var entity =
-                new Post()
+                new Reply()
                 {
-
-                    Title = post.Title,
-                    Text = post.Text,
+                    CommentId = reply.CommentId,
+                    Text = reply.Text,
                     AuthorId = _userId,
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Posts.Add(entity);
+                ctx.Replies.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<GetAllPost> GetPosts()
+        public IEnumerable<ReplyCreate> ViewReplies()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Posts
+                    .Replies
                     .Where(e => e.AuthorId == _userId)
                     .Select(
                         e =>
-                        new GetAllPost
+                        new ReplyCreate
                         {
-                            Title = e.Title,
-                            Text = e.Text
+                        CommentId = e.CommentId,
+                        Text = e.Text
                         }
                         );
-
                 return query.ToArray();
             }
         }

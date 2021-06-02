@@ -5,18 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TwentyFour.Data;
 
-namespace TwentyFour.Data
+namespace TwentyFour.Models
 {
-    public class Comment
+    public class GetAllComments
     {
-        [Key]
         public int Id { get; set; }
+        [Required]
         public string Text { get; set; }
-        public Guid AuthorId { get; set; }
-        public virtual List<Reply> Replies { get; set; }
         public int? PostId { get; set; }
-        [ForeignKey(nameof(PostId))]
-        public virtual Post Post { get; set; }
+
+       // [ForeignKey(nameof(PostId))]
+       // public virtual Post Post { get; set; }
     }
 }

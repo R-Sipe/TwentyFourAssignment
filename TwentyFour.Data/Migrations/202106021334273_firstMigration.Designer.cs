@@ -7,13 +7,13 @@ namespace TwentyFour.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class ForeignKeyRemovedFromPost : IMigrationMetadata
+    public sealed partial class firstMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ForeignKeyRemovedFromPost));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(firstMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106011937193_ForeignKeyRemovedFromPost"; }
+            get { return "202106021334273_firstMigration"; }
         }
         
         string IMigrationMetadata.Source
