@@ -14,8 +14,8 @@ namespace TwentyFourAssignment.Controllers
     {
         public IHttpActionResult Get()
         {
-            ReplyService commentService = CreateReplyService();
-            var replies = commentService.ViewReplies();
+            ReplyService replyService = CreateReplyService();
+            var replies = replyService.ViewReplies();
             return Ok(replies);
         }
 
